@@ -1,0 +1,101 @@
+---
+title: "DATA 605 Assignment 8"
+author: "Warner Alexis"
+date: "2024-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Week Assignment 8 
+
+1) 1. Let X1, X2, . . . , Xn be n mutually independent random variables, each of
+which is uniformly distributed on the integers from 1 to k. Let Y denote the
+minimum of the Xi’s. Find the distribution of Y .
+
+# Solution 
+
+The probabiblity that any single $X_i$ is greater that y $\frac {k-y}{k}$, so $k-y$ is greater than y out of total of k.
+
+$P(Y = y) = (\frac {k-y}{k})^n - (\frac {k-(y+1)}{k})^n $
+
+for $y = 1,2,...,k$.
+
+Y is the minimum of $X_1,X_2...X_n$ where $X_i$ is uniformly distributed. 
+
+
+2) Your organization owns a copier (future lawyers, etc.) or MRI (future doctors). This machine has a manufacturer’s expected lifetime of 10 years. This means that we expect one failure every ten years. (Include the probability statements and R Code for each part.).
+
+```{r}
+# Probability of Success 
+p <- 9/10
+
+# Probability the mission will fail after 8 years 
+fail_prob <- 1 - p^8 
+cat("Probability the machine will fail after 8 years", fail_prob,"\n")
+
+#Expected value 
+cat("The expected value is ", 1/p,"\n")
+
+# Standard Deviation 
+cat("The Standard deviation is ", sqrt((1-p)/(p^2)),"\n")
+
+
+```
+b) b. What is the probability that the machine will fail after 8 years?. Provide also the expected value and standard deviation. Model as an exponential. 
+
+```{r}
+# rate of lambda 
+lambda <- 1/10
+
+cat("The probability that the machine will fail " , exp(-lambda * 8), "\n")
+
+cat("The expected value", 1/ lambda,"\n")
+
+cat("The standar deviation is: ", 1/ lambda,"\n")
+```
+C) What is the probability that the machine will fail after 8 years?. Provide also the expected value and standard deviation. Model as a binomial. (Hint: 0 success in 8 years) 
+
+
+The  probability that there is 0 failure after 8 years. 
+$P(X=8) = \sum_{0}^n\dbinom{n}{k}(1-p)^n-k$
+
+Asumming $p = 1/10$ and $n=8$
+
+```{r}
+# probability of success 
+p <- 1/10
+#number of years
+n <- 8 
+
+# the number of failure 
+# number of failures in first 8 years
+failures <- 0
+
+cat("Probaility that machine will face after 8 years",pbinom(failures,n,p),"\n")
+
+
+    
+```
+
+
+d) What is the probability that the machine will fail after 8 years?. Provide also the expected value and standard deviation. Model as a Poisson. 
+
+
+Let calculate the probability that the machine will fail after 8 years. 
+$P(X=8) = \sum_{0}^n\dbinom{8}{0}\frac {\lambda^x_e-\lambda}{x!}$
+
+```{r}
+lambda <- 1
+
+cat("The probability that the machine will fail after 8 years: ", 1 - ppois(7, lambda*8),"\n")
+
+# Expected Value
+cat("The Expected Value is: ", lambda * 8, "\n")
+
+# Standard Deviation 
+cat("The Standard Deviation is ", sqrt(lambda * 8),"\n")
+```
+

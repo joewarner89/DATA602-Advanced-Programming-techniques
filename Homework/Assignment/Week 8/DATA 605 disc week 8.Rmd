@@ -1,0 +1,43 @@
+---
+title: "DATA 605 Discussion 7"
+author: "Warner Alexis"
+date: "2024-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 1 page 197 
+For which of the following random variables would it be appropriate to assign
+a uniform distribution?
+(a) Let X represent the roll of one die.
+
+(b) Let X represent the number of heads obtained in three tosses of a coin.
+
+(c) A roulette wheel has 38 possible outcomes: 0, 00, and 1 through 36. Let
+X represent the outcome when a roulette wheel is spun.
+
+(d) Let X represent the birthday of a randomly chosen person.
+
+(e) Let X represent the number
+
+# Solution 
+a) Let X represent the roll of one die.
+
+**This is a uniform distribution because each try repesent 1/6 **
+
+b) Let X represent the number of heads obtained in three tosses of a coin.
+
+**This is not a uniform disribution because you cannot get three heads on every outcomes when you toss 3 times**
+
+c)  A roulette wheel has 38 possible outcomes: 0, 00, and 1 through 36. Let
+X represent the outcome when a roulette wheel is spun.
+**Each outcome has possibilty of occuring when the roulette wheel is spun. Therefore, this is appropriate for uniform distribution**
+
+(d) Let X represent the birthday of a randomly chosen person.
+**Birthday can occur in different dates within different dates in 365 days. Therefore it is not appropriate for uniform distribution**
+
+e) Let X represent the number
+**If A represent an infite number of eually likely outcome so we can use uniform distribution**

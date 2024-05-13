@@ -29,7 +29,7 @@ def exercise02():
     The dataset contains columns 'id', 'name', 'value'. Print the first 5 rows as part of the exercise.
     '''
     # ------ Place code below here \/ \/ \/ ------
-    df2 = pd.read_csv("data.csv")
+    df2 = pd.read_csv("https://raw.githubusercontent.com/joewarner89/DATA602-Advanced-Programming-techniques/main/Homework/Assignment/week7/data.csv")
     df2 = df2.head()
     df2
 
@@ -41,8 +41,7 @@ def exercise03(df):
     Given a DataFrame 'df', filter out and return a new DataFrame containing only the rows where 'value' is greater than 50.
     '''
     # ------ Place code below here \/ \/ \/ ------
-    df = pd.DataFrame({'value': [40, 60, 30, 70, 80],
-                       'other_column': ['a', 'b', 'c', 'd', 'e']})
+
     filtered_df = df[df["value"] > 50]
     # ------ Place code above here /\ /\ /\ ------
     return filtered_df
@@ -57,8 +56,9 @@ def exercise04():
     df4 = pd.DataFrame([
         {'city': 'New York', 'data': 100},
         {'city': 'Los Angeles', 'data': 150},
-        {'city': 'Chicago', 'data': 80},
-        {'city': 'Houston', 'data': 120}
+        {'city': 'Chicago', 'data': 80}
+        #{'city': 'Houston', 'data': 36}
+
     ])
 
     # ------ Place code above here /\ /\ /\ ------
@@ -70,7 +70,7 @@ def exercise05(df):
     Given a DataFrame 'df', add a new column 'data_squared' that contains the square of the 'data' column values.
     '''
     # ------ Place code below here \/ \/ \/ ------
-    df = pd.DataFrame({'data': [5, 10, 15, 20, 25]})
+    #df = pd.DataFrame({'data': [5, 10, 15, 20, 25]})
     df['data_squared'] = df['data'] ** 2
     # ------ Place code above here /\ /\ /\ ------
     return df
@@ -81,7 +81,8 @@ def exercise06():
     Assume the Excel file has columns 'A', 'B', 'C'. Return the DataFrame.
     '''
     # ------ Place code below here \/ \/ \/ ------
-    df6 = pd.read_excel("data.xlsx")
+    df6 = pd.read_excel("https://github.com/joewarner89/DATA602-Advanced-Programming-techniques/raw/main/Homework/Assignment/week7/data.xlsx",
+                        sheet_name=0, names=['A', 'B', 'C'])
     # ------ Place code above here /\ /\ /\ ------
     return df6
 
@@ -90,6 +91,7 @@ def exercise07(df):
     Given a DataFrame 'df', drop any rows that have missing values and return the cleaned DataFrame.
     '''
     # ------ Place code below here \/ \/ \/ ------
+    '''
     df = pd.DataFrame([
         {'city': 'New York', 'data': 100},
         {'city': 'Los Angeles', 'data': 150},
@@ -99,7 +101,7 @@ def exercise07(df):
         {'city': 'Spring Valley', 'data': np.nan},
         {'city': 'Brooklyn', 'data': np.nan},
         {'city': 'Delray Beach', 'data': 25},
-    ])
+    ])'''
     cleaned_df = df.dropna()
 
     # ------ Place code above here /\ /\ /\ ------
